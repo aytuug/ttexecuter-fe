@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from '../../Pages/Home/Home';
-import AddClassroom from '../../Pages/AddClassroom/AddClassroom';
-import AddCourse from '../../Pages/AddCourse/AddCourse';
-import AddDepartment from '../../Pages/AddDepartment/AddDepartment';
-import AddFaculty from '../../Pages/AddFaculty/AddFaculty';
-import AddInstructor from '../../Pages/AddInstructor/AddInstructor';
-import AddStudent from '../../Pages/AddStudent/AddStudent';
-import Timetable from '../../Pages/Timetable/Timetable';
+import Home from '../../Pages/Home';
+import AddClassroom from '../../Pages/AddClassroom';
+import AddCourse from '../../Pages/AddCourse';
+import AddDepartment from '../../Pages/AddDepartment';
+import AddFaculty from '../../Pages/AddFaculty';
+import AddInstructor from '../../Pages/AddInstructor';
+import AddStudent from '../../Pages/AddStudent';
+import Timetable from '../../Pages/Timetable';
 
 const AppRoutes = () => {
   return (
