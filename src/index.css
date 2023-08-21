@@ -11,3 +11,59 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-left: 40px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-item {
+  margin-bottom: 16px;
+}
+
+.submit-button {
+  margin-top: 16px;
+  display: block;
+  width: 100%;
+}
+
+/* Timetable.css */
+
+.timetable-container {
+  margin: 20px auto;
+  width: 80%;
+}
+
+.timetable-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.timetable-table th,
+.timetable-table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.timetable-table th {
+  background-color: #f2f2f2;
+}
+
+.timetable-table td {
+  border-top: 1px solid #f2f2f2;
+}
+
+.timetable-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.timetable-table tr:hover {
+  background-color: #e0e0e0;
+}
