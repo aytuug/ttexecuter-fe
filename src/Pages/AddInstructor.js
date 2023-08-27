@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, Select, DatePicker } from 'antd';
 import axios from 'axios';
+import moment from 'moment';
 const { Option } = Select;
 
 const AddInstructor = () => {
   const [departments, setDepartments] = useState([]);
+  const [defaultDate, setDefaultDate] = useState(new Date());
+
   const config = {
     headers: {
       'Access-Control-Allow-Origin': '*',
@@ -94,22 +97,24 @@ const AddInstructor = () => {
           className="form-item"
           label="Created Date"
           name="createdDate"
-          rules={[
-            { required: true, message: 'Lütfen oluşturulma tarihini girin!' },
-          ]}
         >
-          <DatePicker showTime />
+          <DatePicker
+            showTime
+            defaultValue={moment(defaultDate)}
+            onChange={(date, dateString) => setDefaultDate(date.toDate())}
+          />
         </Form.Item>
 
         <Form.Item
           className="form-item"
           label="Uptaded Date"
           name="updatedDate"
-          rules={[
-            { required: true, message: 'Lütfen oluşturulma tarihini girin!' },
-          ]}
         >
-          <DatePicker showTime />
+          <DatePicker
+            showTime
+            defaultValue={moment(defaultDate)}
+            onChange={(date, dateString) => setDefaultDate(date.toDate())}
+          />
         </Form.Item>
         <Form.Item>
           <Button className="submit-button" type="primary" htmlType="submit">

@@ -11,3 +11,29 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
+
+.dashboard-card {
+  width: 300px; /* Bileşenin genişliğini ayarlayabilirsiniz */
+  padding: 5px;
+  margin: 2px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.dashboard-card-icon {
+  font-size: 48px;
+  color: #3498db;
+}
+
+.dashboard-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
