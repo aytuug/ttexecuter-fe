@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Select, DatePicker } from 'antd';
+import { Form, Input, Button, Select } from 'antd';
 import axios from 'axios';
-import moment from 'moment';
 const { Option } = Select;
 
 const AddDepartment = () => {
   const [faculties, setFaculties] = useState([]);
-  const [defaultDate, setDefaultDate] = useState(new Date());
   const config = {
     headers: {
       'Access-Control-Allow-Origin': '*',
@@ -73,29 +71,6 @@ const AddDepartment = () => {
               </Option>
             ))}
           </Select>
-        </Form.Item>
-        <Form.Item
-          className="form-item"
-          label="Created Date"
-          name="createdDate"
-        >
-          <DatePicker
-            showTime
-            defaultValue={moment(defaultDate)}
-            onChange={(date, dateString) => setDefaultDate(date.toDate())}
-          />
-        </Form.Item>
-
-        <Form.Item
-          className="form-item"
-          label="Updated Date"
-          name="updatedDate"
-        >
-          <DatePicker
-            showTime
-            defaultValue={moment(defaultDate)}
-            onChange={(date, dateString) => setDefaultDate(date.toDate())}
-          />
         </Form.Item>
         <Form.Item>
           <Button className="submit-button" type="primary" htmlType="submit">

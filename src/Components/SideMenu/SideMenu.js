@@ -1,7 +1,6 @@
 import { Menu } from 'antd';
 import React from 'react';
 import {
-  TableOutlined,
   BankOutlined,
   SolutionOutlined,
   UserOutlined,
@@ -14,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 const SideMenu = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div style={{ marginTop: '20px' }}>
       <Menu
         onClick={(item) => {
           navigate(item.key);
@@ -54,11 +53,6 @@ const SideMenu = () => {
             label: 'Add Course',
             icon: <FundProjectionScreenOutlined />,
             key: '/course',
-          },
-          {
-            label: 'Timetable',
-            icon: <TableOutlined />,
-            key: '/timetable',
           },
         ]}
       ></Menu>

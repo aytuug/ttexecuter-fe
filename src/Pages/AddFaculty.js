@@ -1,23 +1,28 @@
-import { Button, DatePicker, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import axios from 'axios';
-import moment from 'moment';
 import React, { useState } from 'react';
 
 const AddFaculty = () => {
   const [loading, setLoading] = useState(false);
-  const [defaultDate, setDefaultDate] = useState(new Date());
   const config = {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST',
     },
   };
-  const onFinish = async (values) => {
+
+  const handleSubmit = async (values) => {
+    const requestData = {
+      name: values.name,
+      capacity: values.capacity,
+      createdDate: new Date().toISOString(),
+      updatedDate: new Date().toISOString(),
+    };
     try {
       setLoading(true);
       const response = await axios.post(
         'http://localhost:8080/api/faculty',
-        values,
+        requestData,
         config
       ); // URL'i doğru bir şekilde değiştirin
       console.log('Response:', response.data);
@@ -27,9 +32,14 @@ const AddFaculty = () => {
       setLoading(false);
     }
   };
+
   return (
     <div className="form-container">
-      <Form name="basic" initialValues={{ remember: true }} onFinish={onFinish}>
+      <Form
+        name="basic"
+        initialValues={{ remember: true }}
+        onFinish={handleSubmit}
+      >
         <Form.Item
           className="form-item"
           label="Name"
@@ -47,31 +57,6 @@ const AddFaculty = () => {
         >
           <Input type="number" />
         </Form.Item>
-
-        <Form.Item
-          className="form-item"
-          label="Created Date"
-          name="createdDate"
-        >
-          <DatePicker
-            showTime
-            defaultValue={moment(defaultDate)}
-            onChange={(date, dateString) => setDefaultDate(date.toDate())}
-          />
-        </Form.Item>
-
-        <Form.Item
-          className="form-item"
-          label="Updated Date"
-          name="updatedDate"
-        >
-          <DatePicker
-            showTime
-            defaultValue={moment(defaultDate)}
-            onChange={(date, dateString) => setDefaultDate(date.toDate())}
-          />
-        </Form.Item>
-
         <Form.Item>
           <Button
             className="submit-button"

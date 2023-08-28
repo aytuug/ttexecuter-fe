@@ -7,7 +7,6 @@ import AddDepartment from '../../Pages/AddDepartment';
 import AddFaculty from '../../Pages/AddFaculty';
 import AddInstructor from '../../Pages/AddInstructor';
 import AddStudent from '../../Pages/AddStudent';
-import Timetable from '../../Pages/Timetable';
 
 const AppRoutes = () => {
   return (
@@ -19,7 +18,6 @@ const AppRoutes = () => {
       <Route path="/faculty" element={<AddFaculty />}></Route>
       <Route path="/instructor" element={<AddInstructor />}></Route>
       <Route path="/student" element={<AddStudent />}></Route>
-      <Route path="/timetable" element={<Timetable />}></Route>
     </Routes>
   );
 };

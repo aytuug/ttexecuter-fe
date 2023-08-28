@@ -1,21 +1,11 @@
-import {
-  Button,
-  Card,
-  Col,
-  Divider,
-  Result,
-  Row,
-  Space,
-  Spin,
-  Statistic,
-  Typography,
-} from 'antd';
+import { Button, Card, Col, Divider, Row, Space, Statistic } from 'antd';
 import React, { useEffect, useState } from 'react';
 import {
-  DollarCircleOutlined,
-  ShoppingCartOutlined,
-  ShoppingOutlined,
+  BankOutlined,
+  SolutionOutlined,
   UserOutlined,
+  LaptopOutlined,
+  FundProjectionScreenOutlined,
 } from '@ant-design/icons';
 import {
   getClassrooms,
@@ -85,17 +75,11 @@ const Home = () => {
     }
   };
 
-  const buttonStyle = {
-    width: '300px',
-    height: '30px',
-    marginTop: '20px',
-    marginLeft: '1300px',
-    marginBottom: '20px',
-  };
-
   return (
     <Space size={1} direction="vertical">
-      <div style={{ marginBottom: '20px', marginTop: '15px' }}>
+      <div
+        style={{ marginBottom: '20px', marginTop: '15px', marginLeft: '133px' }}
+      >
         {!(
           studentCount > 0 &&
           classroomCount > 0 &&
@@ -106,7 +90,7 @@ const Home = () => {
         ) && (
           <span
             style={{
-              color: 'red',
+              color: '#1fb593',
               marginTop: '300px',
               marginRight: '1300px',
             }}
@@ -134,16 +118,16 @@ const Home = () => {
           Generate Table
         </Button>
       </div>
-      <Row gutter={2}>
+      <Row gutter={2} style={{ marginLeft: '130px' }}>
         <Col span={8}>
           <Space className="dashboard-card">
             <DashboardCard
               icon={
-                <ShoppingCartOutlined
+                <UserOutlined
                   className="dashboard-card-icon"
                   style={{
-                    color: 'green',
-                    backgroundColor: 'rgba(0,255,0,0.25)',
+                    color: 'white',
+                    backgroundColor: '#1fb593',
                     borderRadius: 20,
                     fontSize: 24,
                     padding: 8,
@@ -159,11 +143,11 @@ const Home = () => {
           <Space className="dashboard-card">
             <DashboardCard
               icon={
-                <ShoppingOutlined
+                <LaptopOutlined
                   className="dashboard-card-icon"
                   style={{
-                    color: 'blue',
-                    backgroundColor: 'rgba(0,0,255,0.25)',
+                    color: 'white',
+                    backgroundColor: '#1fb593',
                     borderRadius: 20,
                     fontSize: 24,
                     padding: 8,
@@ -179,11 +163,11 @@ const Home = () => {
           <Space className="dashboard-card">
             <DashboardCard
               icon={
-                <UserOutlined
+                <FundProjectionScreenOutlined
                   className="dashboard-card-icon"
                   style={{
-                    color: 'purple',
-                    backgroundColor: 'rgba(0,255,255,0.25)',
+                    color: 'white',
+                    backgroundColor: '#1fb593',
                     borderRadius: 20,
                     fontSize: 24,
                     padding: 8,
@@ -200,11 +184,11 @@ const Home = () => {
           <Space className="dashboard-card">
             <DashboardCard
               icon={
-                <DollarCircleOutlined
+                <SolutionOutlined
                   className="dashboard-card-icon"
                   style={{
-                    color: 'red',
-                    backgroundColor: 'rgba(255,0,0,0.25)',
+                    color: 'white',
+                    backgroundColor: '#1fb593',
                     borderRadius: 20,
                     fontSize: 24,
                     padding: 8,
@@ -220,11 +204,11 @@ const Home = () => {
           <Space className="dashboard-card">
             <DashboardCard
               icon={
-                <DollarCircleOutlined
+                <BankOutlined
                   className="dashboard-card-icon"
                   style={{
-                    color: 'green',
-                    backgroundColor: 'rgba(255,0,0,0.25)',
+                    color: 'white',
+                    backgroundColor: '#1fb593',
                     borderRadius: 20,
                     fontSize: 24,
                     padding: 8,
@@ -240,11 +224,11 @@ const Home = () => {
           <Space className="dashboard-card">
             <DashboardCard
               icon={
-                <DollarCircleOutlined
+                <UserOutlined
                   className="dashboard-card-icon"
                   style={{
-                    color: 'grey',
-                    backgroundColor: 'rgba(255,0,0,0.25)',
+                    color: 'white',
+                    backgroundColor: '#1fb593',
                     borderRadius: 20,
                     fontSize: 24,
                     padding: 8,
@@ -258,7 +242,9 @@ const Home = () => {
         </Col>
         <Divider dashed style={{ margin: '20px 0' }} />
       </Row>
-      <Timetable refresh={refreshTimetable} />
+      <div style={{ marginRight: '80px' }}>
+        <Timetable refresh={refreshTimetable} />
+      </div>
     </Space>
   );
 };

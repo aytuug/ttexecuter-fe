@@ -37,3 +37,16 @@
   font-weight: bold;
   color: #333;
 }
+
+.ant-btn-primary {
+  background-color: #1fb593;
+}
+
+.ant-btn:hover {
+  background-color: #28e9bc !important;
+}
+
+.ant-menu-item-selected {
+  color: white !important;
+  background-color: #1fb593 !important;
+}
