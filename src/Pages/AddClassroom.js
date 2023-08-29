@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const AddClassroom = () => {
   const [loading, setLoading] = useState(false);
@@ -27,8 +28,27 @@ const AddClassroom = () => {
         config
       ); // URL'i doğru bir şekilde değiştirin
       console.log('Response:', response.data);
+      toast.success('Classroom Added!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
     } catch (error) {
-      console.error('Error:', error);
+      toast.error('An unexpected error was encountered!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
     } finally {
       setLoading(false);
     }

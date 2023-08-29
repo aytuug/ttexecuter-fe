@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const { Option } = Select;
 
@@ -20,6 +21,16 @@ const AddCourse = () => {
         setInstructors(response.data);
       })
       .catch((error) => {
+        toast.error('An unexpected error was encountered!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
         console.error('Error fetching instructors:', error);
       });
     axios
@@ -28,6 +39,16 @@ const AddCourse = () => {
         setStudents(response.data);
       })
       .catch((error) => {
+        toast.error('An unexpected error was encountered!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
         console.error('Error fetching students:', error);
       });
   }, []);
@@ -59,9 +80,29 @@ const AddCourse = () => {
       .post('http://localhost:8080/api/course', requestData, config)
       .then((response) => {
         console.log('Request successful:', response);
+        toast.success('Course Added!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
       })
       .catch((error) => {
         console.error('Error sending request:', error);
+        toast.error('An unexpected error was encountered!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
       });
   };
 

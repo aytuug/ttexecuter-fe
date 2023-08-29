@@ -17,6 +17,8 @@ import {
 } from '../services';
 import Timetable from './Timetable';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 const Home = () => {
   const [studentCount, setStudentCount] = useState(0);
   const [classroomCount, setClassroom] = useState(0);
@@ -67,10 +69,30 @@ const Home = () => {
         axios.get('http://localhost:8080/api/timetable').then(() => {
           setRefreshTimetable(!refreshTimetable);
           setIsLoading(false);
+          toast.success('Generated TTable!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
         });
       } catch (error) {
         console.error('Error generating table:', error);
         setIsLoading(false);
+        toast.error('An unexpected error was encountered!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
       }
     }
   };

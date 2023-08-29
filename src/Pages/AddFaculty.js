@@ -1,6 +1,7 @@
 import { Button, Form, Input } from 'antd';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const AddFaculty = () => {
   const [loading, setLoading] = useState(false);
@@ -26,8 +27,28 @@ const AddFaculty = () => {
         config
       ); // URL'i doğru bir şekilde değiştirin
       console.log('Response:', response.data);
+      toast.success('Faculty Added!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
     } catch (error) {
       console.error('Error:', error);
+      toast.error('An unexpected error was encountered!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
     } finally {
       setLoading(false);
     }

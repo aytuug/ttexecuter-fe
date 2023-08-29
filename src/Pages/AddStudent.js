@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 const { Option } = Select;
 
 const AddStudent = () => {
@@ -20,6 +22,16 @@ const AddStudent = () => {
         setDepartments(response.data); // Gelen veriyi faculties state'ine kaydediyoruz
       })
       .catch((error) => {
+        toast.error('An unexpected error was encountered!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
         console.error('Error fetching departments:', error);
       });
   }, []);
@@ -45,8 +57,28 @@ const AddStudent = () => {
       .post('http://localhost:8080/api/student', requestData, config)
       .then((response) => {
         console.log('Request successful:', response);
+        toast.success('Faculty Added!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
       })
       .catch((error) => {
+        toast.error('An unexpected error was encountered!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
         console.error('Error sending request:', error);
       });
   };
