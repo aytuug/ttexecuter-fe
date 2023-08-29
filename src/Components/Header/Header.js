@@ -6,7 +6,7 @@ import logo from '../../assets/ttexecuter.png';
 const Header = () => {
   return (
     <div className="header">
-      <Image width={122} src={logo} />
+      <Image style={{ marginLeft: '11px' }} width={100} src={logo} />
     </div>
   );
 };

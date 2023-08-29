@@ -62,11 +62,11 @@ const Home = () => {
   }, []);
   const allCountsGreaterThanZero =
     studentCount > 0 &&
-    classroomCount > 0 &&
+    classroomCount > 3 &&
     courseCount > 0 &&
     departmentCount > 0 &&
     facultyCount > 0 &&
-    instructorCount > 0;
+    instructorCount > 3;
 
   const handleGenerateClick = async () => {
     if (allCountsGreaterThanZero) {
@@ -115,11 +115,11 @@ const Home = () => {
       >
         {!(
           studentCount > 0 &&
-          classroomCount > 0 &&
+          classroomCount > 3 &&
           courseCount > 0 &&
           departmentCount > 0 &&
           facultyCount > 0 &&
-          instructorCount > 0
+          instructorCount > 3
         ) && (
           <span
             style={{
@@ -128,8 +128,8 @@ const Home = () => {
               marginRight: '1300px',
             }}
           >
-            You can't generate in the system without a classroom, course,
-            department, faculty, instructor, student.
+            You cannot generate without at least 4 classes, 1 course, 1
+            department, 1 faculty, 4 instructors and 1 student.
           </span>
         )}
         <Button
@@ -140,11 +140,11 @@ const Home = () => {
           disabled={
             !(
               studentCount > 0 &&
-              classroomCount > 0 &&
+              classroomCount > 3 &&
               courseCount > 0 &&
               departmentCount > 0 &&
               facultyCount > 0 &&
-              instructorCount > 0
+              instructorCount > 3
             )
           }
         >
