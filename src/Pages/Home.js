@@ -14,6 +14,7 @@ import {
   getFaculties,
   getInstructors,
   getStudents,
+  getTTable,
 } from '../services';
 import Timetable from './Timetable';
 import axios from 'axios';
@@ -26,6 +27,7 @@ const Home = () => {
   const [departmentCount, setDepartmentCount] = useState(0);
   const [facultyCount, setFacultyCount] = useState(0);
   const [instructorCount, setInstructorCount] = useState(0);
+  const [ttableCount, setTtableCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [refreshTimetable, setRefreshTimetable] = useState(false);
   useEffect(() => {
@@ -53,6 +55,10 @@ const Home = () => {
       const numberOfStudents = res.length;
       setInstructorCount(numberOfStudents);
     });
+    getTTable().then((res) => {
+      const numberOfTtable = res.length;
+      setTtableCount(numberOfTtable);
+    });
   }, []);
   const allCountsGreaterThanZero =
     studentCount > 0 &&
@@ -66,6 +72,11 @@ const Home = () => {
     if (allCountsGreaterThanZero) {
       try {
         setIsLoading(true);
+        const dataExists = ttableCount > 0;
+
+        if (dataExists) {
+          await axios.delete('http://localhost:8080/api/timetable');
+        }
         axios.get('http://localhost:8080/api/timetable').then(() => {
           setRefreshTimetable(!refreshTimetable);
           setIsLoading(false);
